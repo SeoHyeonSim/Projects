@@ -1,0 +1,21 @@
+# 안내사항 # 
+
+1. 테트리스 게임에서, 게임 재시작 및 다음 레벨로 전환 시 처음 블록이 자동으로 내려오지 않는 오류가 있습니다. 
+   첫번째 블록만 직접 아래로 내려주면 그 이후로는 정상 작동합니다. 
+2. 슈팅 게임 코드의 2586~ 2592 줄 부분에서, 파일이 지속적으로 이미지 파일을 찾지 못하는 오류가 갑작스레 발생해 부득이하게 절대 경로로 설정했습니다.
+  실행 전, 앞 부분을 해당 PC의 경로로 수정해 주시면 감사하겠습니다. 
+
+< 해당 코드 > 
+class Rock(pygame.sprite.Sprite):
+        def __init__(self, xpos,ypos,speed):
+            super(Rock,self).__init__()
+            # 적 이미지 설정
+            rock_images = [
+                'C:/Users/sss/OneDrive/바탕 화면/게임 프로젝트/images/rock01.png',
+                'C:/Users/sss/OneDrive/바탕 화면/게임 프로젝트/images/rock16.png',
+                'C:/Users/sss/OneDrive/바탕 화면/게임 프로젝트/images/rock25.png',
+                'C:/Users/sss/OneDrive/바탕 화면/게임 프로젝트/images/rock07.png',
+                'C:/Users/sss/OneDrive/바탕 화면/게임 프로젝트/images/rock14.png'
+                ]        
+                # 적 이미지 랜덤 설정
+            self.image = pygame.image.load(random.choice(rock_images))  
